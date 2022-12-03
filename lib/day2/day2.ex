@@ -16,9 +16,9 @@ defmodule Aoc.Day2.Part2 do
     end)
   end
 
-  def calc_score(player_move, "X"), do: shape_score(@rules[player_move])
-  def calc_score(player_move, "Y"), do: shape_score(player_move) + @draw_score
-  def calc_score(player_move, "Z"), do: shape_score(@reversed_rules[player_move]) + @win_score
+  defp calc_score(player_move, "X"), do: shape_score(@rules[player_move])
+  defp calc_score(player_move, "Y"), do: shape_score(player_move) + @draw_score
+  defp calc_score(player_move, "Z"), do: shape_score(@reversed_rules[player_move]) + @win_score
 
-  def shape_score(move), do: Map.get(@scores, move)
+  defp shape_score(move), do: Map.get(@scores, move)
 end

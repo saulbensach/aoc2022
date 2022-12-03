@@ -33,7 +33,7 @@ defmodule AOC.Day3 do
     String.split_at(rucksack, div(len, 2))
   end
 
-  def intersec_compartiments(a, b) do
+  defp intersec_compartiments(a, b) do
     set1 = MapSet.new(a)
     set2 = MapSet.new(b)
 
@@ -41,7 +41,7 @@ defmodule AOC.Day3 do
     |> MapSet.to_list()
   end
 
-  def gen_priorities() do
+  defp gen_priorities() do
     dic = for item <- ?a..?z, do: {<<item>>, item}
     dic_up = for item <- ?A..?Z, do: {<<item>>, item}
 
@@ -54,7 +54,7 @@ defmodule AOC.Day3 do
     Map.merge(reduce.(dic, 96), reduce.(dic_up, 38))
   end
 
-  def load_input() do
+  defp load_input() do
     "lib/day3/input.txt"
     |> File.read!()
     |> String.split(["\n", "\r"], trim: true)
