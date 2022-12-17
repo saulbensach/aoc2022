@@ -8,7 +8,7 @@ defmodule AOC.Day3 do
 
       items = intersec_compartiments(String.graphemes(comp1), String.graphemes(comp2))
 
-      Enum.reduce(items, 0, &priorities[&1] + &2) + acc
+      Enum.reduce(items, 0, &(priorities[&1] + &2)) + acc
     end)
   end
 
@@ -20,9 +20,10 @@ defmodule AOC.Day3 do
       [first | rest] = group
       first = String.graphemes(first)
 
-      [item] = Enum.reduce(rest, first, fn rucksack, acc ->
-        intersec_compartiments(acc, String.graphemes(rucksack))
-      end)
+      [item] =
+        Enum.reduce(rest, first, fn rucksack, acc ->
+          intersec_compartiments(acc, String.graphemes(rucksack))
+        end)
 
       priorities[item] + acc
     end)

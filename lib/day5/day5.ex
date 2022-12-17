@@ -1,5 +1,4 @@
 defmodule AOC.Day5 do
-
   @init_test %{
     "1" => ["N", "Z"],
     "2" => ["D", "C", "M"],
